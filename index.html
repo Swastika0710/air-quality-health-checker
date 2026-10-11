@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Check live air-quality conditions and understand simple health guidance using public Open-Meteo data.">
+<title>Air Quality Health Checker</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header>
+<h1>Air Quality Health Checker</h1>
+<p>Check live air-quality conditions and understand what they may mean for health.</p>
+</header>
+<main>
+<section class="search">
+<label for="city">Choose a location</label>
+<select id="city" aria-label="Choose a location">
+<option value="51.5072,-0.1276">London</option>
+<option value="53.4808,-2.2426">Manchester</option>
+<option value="52.4862,-1.8904">Birmingham</option>
+<option value="55.9533,-3.1883">Edinburgh</option>
+<option value="53.8008,-1.5491">Leeds</option>
+<option value="51.4545,-2.5879">Bristol</option>
+<option value="53.4084,-2.9916">Liverpool</option>
+<option value="54.5973,-5.9301">Belfast</option>
+<option value="51.4816,-3.1791">Cardiff</option>
+<option value="57.1497,-2.0943">Aberdeen</option>
+</select>
+<button id="check">Check air quality</button>
+</section>
+<section id="result" class="hidden" aria-live="polite">
+<h2 id="location"></h2>
+<div class="metrics">
+<div class="card"><span id="aqi"></span><small>European AQI</small></div>
+<div class="card"><span id="pm25"></span><small>PM2.5</small></div>
+<div class="card"><span id="pm10"></span><small>PM10</small></div>
+<div class="card"><span id="no2"></span><small>Nitrogen dioxide</small></div>
+<div class="card"><span id="o3"></span><small>Ozone</small></div>
+</div>
+<div class="advice">
+<h3>Health guidance</h3>
+<p id="advice"></p>
+<p class="source">Live data provided by Open-Meteo. This tool provides general information and is not medical advice.</p>
+</div>
+<h3>24-hour PM2.5 forecast</h3>
+<canvas id="forecastChart" role="img" aria-label="Line chart showing the 24-hour PM2.5 forecast for the selected location"></canvas>
+</section>
+<p id="error" class="error hidden" role="alert"></p>
+</main>
+<footer>
+<p>Built by Swastika Mishra · <a href="https://github.com/Swastika0710/air-quality-health-checker">View repository</a></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
